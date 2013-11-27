@@ -1,0 +1,12 @@
+{
+  "name": "Clojure LT - RubyConfAr",
+  "description": "Lightning talk about clojure for RubyConfAr 2013",
+  "author": "Nicolás Berger",
+  "templates" : {
+      "special" : "simple.tpl"
+  },
+  "pause_msg": "Paused !!!",
+  "sections": [
+    {"section":"clojure-lt"}
+  ]
+}
