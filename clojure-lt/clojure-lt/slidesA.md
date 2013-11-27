@@ -2,7 +2,8 @@
 
 # Clojure #
 
-* Nicolás Berger
+<!SLIDE bullets>
+# Nicolás Berger #
 
   * yellowspot.com.ar
   * github.com/nicoberger
@@ -10,26 +11,29 @@
 
 <!SLIDE bullets>
 
-* Lisp
+# Lisp #
+
   * code-as-data
   * macros -> DSL
 
+
 <!SLIDE bullets>
 
-* JVM
+# JVM #
   * Java interop
   * GC
   * Librerías existentes
 
 <!SLIDE bullets>
 
-* STM (Software transactional memory)
-  * ACI transactions
+# STM #
+  * (Software transactional memory)
+  * ACI transactions (atomic, consistent, isolated)
   * Programación concurrente sin locking explícito
 
 <!SLIDE bullets>
 
-* Programación funcional
+# Programación funcional #
   * First class functions
   * Inmutabilidad
   * Iteración recursiva vs loops con side effects
@@ -58,4 +62,6 @@ www.meetup.com/Clojure-Meetup-Montevideo/
 
 * clojure.org
 * github.com/ring-clojure/ring
+* github.com/functional-koans/clojure-koans
+* www.4clojure.com
 * www.meetup.com/Clojure-Meetup-Montevideo/
