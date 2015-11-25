@@ -198,6 +198,27 @@
 
 <!SLIDE bullets>
 
+# Testing
+
+https://github.com/omcljs/om/wiki/Applying-Property-Based-Testing-to-User-Interfaces
+
+        @@@clojure
+        (gen/sample gen-tx-add-remove 10)
+        ;; ([]
+        ;;  [(friend/add {:id 1, :friend 1}) (friend/remove {:id 1, :friend 2})]
+        ;;  [(friend/add {:id 0, :friend 0}) (friend/remove {:id 0, :friend 1})
+        ;;   (friend/add {:id 0, :friend 1})]
+
+        (defn prop-no-self-friending []
+          (prop/for-all [tx gen-tx-add-remove]
+            (let [parser (om/parser {:read read :mutate mutate})
+                  state  (atom (om/tree->db People init-data true))]
+              (parser {:state state} tx)
+              (let [ui (parser {:state state} (om/get-query People))]
+                (not (some self-friended? (:people ui)))))))
+
+<!SLIDE bullets>
+
 # Demo time!
 
 <!SLIDE bullets>
@@ -212,7 +233,7 @@ https://www.thoughtworks.com/radar/techniques/bff-backend-for-frontends
 
 <!SLIDE bullets>
 
-# Preguntas?
+# Gracias! Preguntas?
 
 ### github.com/nberger
 ### twitter.com/nicoberger
