@@ -1,0 +1,12 @@
+{
+  "name": "Introduccion a om.next - Clojure User Group Buenos Aires",
+  "description": "Charla introductoria a om.next, la (r)evolucion de om",
+  "author": "Nicolás Berger",
+  "templates" : {
+      "special" : "simple.tpl"
+  },
+  "pause_msg": "Paused !!!",
+  "sections": [
+    {"section":"om.next"}
+  ]
+}
