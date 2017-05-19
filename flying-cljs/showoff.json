@@ -1,0 +1,12 @@
+{
+  "name": "Flying with ClojureScript and React",
+  "description": "In Roomstorm we use ClojureScript, React and other tools to write fast and safe code. These tools help as write that code fast, with a small team. Talk presented in Travel Tech Con 2017, Treasure Islan, SF.",
+  "author": "Nicolás Berger",
+  "pause_msg": "Paused...",
+  "sections": [
+    {"section": "flying"}
+  ],
+  "templates": {
+    "default": "base.tpl"
+  }
+}
