@@ -40,13 +40,29 @@ Roomstorm
 ~~~SECTION:notes~~~
 A LISP language.
 
-Lots of parens, but other languages too, and also commas and semicolons
+Next slide: Lots of parens
 ~~~ENDSECTION~~~
 
-<img src="../_images/cljs.png" style="width:60%" alt="cljs logo" />
+<img src="../_images/cljs.png" style="width:40%" alt="cljs logo" />
 
-@@@ Clojure
-(let [coll [1 3 5 7]]
+<!SLIDE[bg=parens.jpg] cljs-parens>
+
+~~~SECTION:notes~~~
+Lots of parens, but other languages use them too, and also commas and semicolons, so I dunno
+~~~ENDSECTION~~~
+
+<!SLIDE cljs-js-comparison>
+
+ClojureScript:
+
+    @@@ clojure
+    ;; define f
+    (defn f [a b c]
+      (g a [b c] {fname "John" lname "Doe"}))
+
+    ;; call f
+    (f 42 "Forty" "Two")
+
 
 
 <!SLIDE google-closure compiler bullets incremental>
