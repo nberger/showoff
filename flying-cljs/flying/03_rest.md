@@ -21,9 +21,35 @@
 
 <img class="react-logo" src="../_images/react.png" alt="react logo" />
 
-<!SLIDE reagent re-frame>
+<!SLIDE reagent incremental>
+
+# Reagent
+
+* Thin React wrapper
+
+* Makes it easy to create components
+
+* Most components are created using cljs data structures
+
+    @@@ clojure
+    [:div
+     [:p "This is some "
+      [:strong "text"]]
+     [:ul
+      [:li {:style {:margin-right "10px"}} "A list item"]
+      [:li "Another list item"]]]
+
+<!SLIDE re-frame bullets incremental>
+
+# Re-frame
+
+* Redux-like library
+
+* Built on top of reagent
 
 <!SLIDE references>
+
+# References
 
 Using React.js with ClojureScript - Arne Brasseur (Lambda Island) - https://www.youtube.com/watch?v=Sbej4OYTwjg
 
