@@ -9,16 +9,15 @@
 * A LISP language
 
 ~~~SECTION:notes~~~
-Clojure runs on the JVM
+Clojure on JVM
 
-ClojureScript runs everywhere: browsers, servers, phones or even toasters
+Cljs everywhere: browsers, servers, phones or even toasters
 
-A List Processing language. How do we delimit lists? Using parenthesis
+List Processing. How do we delimit lists? Using parenthesis
 
-Next slide: Lots of parens
 ~~~ENDSECTION~~~
 
-<!SLIDE[transition=fade] cljs>
+<!SLIDE cljs transition=fade>
 
 # ClojureScript
 
@@ -50,43 +49,21 @@ ClojureScript:
     @@@ clojure
     ;; define f
     (defn f [a b c]
-      (g a [b c] {fname "John" lname "Doe"}))
+      (g a [b c] {:fname "John"
+                  :lname "Doe"}))
 
     ;; call f
     (f 42 "Forty" "Two")
 
-<!SLIDE cljs-js-comparison>
-
-ClojureScript:
-
-    @@@ clojure
-
-    (defn f [     ]
-                                            )
-
-
-    (f                 )
-
-
-Javascript:
-
-    @@@ javascript
-
-    function f(       ) {
-
-    }
-
-
-    f(                  );
-
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
     @@@ clojure
     ;; define f
     (defn f [     ]
-                                            )
+
+                                )
 
     ;; call f
     (f                 )
@@ -98,19 +75,23 @@ Javascript:
     // define f
     function f(       ) {
 
+
+
+
     }
 
     // call f
     f(                  );
 
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
     @@@ clojure
     ;; define f
     (defn f [a b c]
-                                            )
+
+                                )
 
     ;; call f
     (f                 )
@@ -122,19 +103,23 @@ Javascript:
     // define f
     function f(a, b, c) {
 
+
+
+
     }
 
     // call f
     f(                  );
 
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
     @@@ clojure
     ;; define f
     (defn f [a b c]
-      (g a                                 ))
+      (g a
+                               ))
 
     ;; call f
     (f                 )
@@ -145,13 +130,16 @@ Javascript:
     @@@ javascript
     // define f
     function f(a, b, c) {
-      g(a,       ,                                  );
+      g(a,       ,
+
+
+       );
     }
 
     // call f
     f(                  );
 
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
@@ -159,8 +147,7 @@ ClojureScript:
     ;; define f
     (defn f [a b c]
       (g a [b c]
-                              ))
-
+                               ))
 
     ;; call f
     (f                 )
@@ -180,15 +167,15 @@ Javascript:
     // call f
     f(                  );
 
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
     @@@ clojure
     ;; define f
     (defn f [a b c]
-      (g a [b c] {fname "John"
-                  lname "Doe"}))
+      (g a [b c] {:fname "John"
+                  :lname "Doe"}))
 
     ;; call f
     (f                 )
@@ -200,23 +187,23 @@ Javascript:
     // define f
     function f(a, b, c) {
       g(a, [b, c], {
-        'fname': "John",
-        'lname': "Doe"
+        fname: "John",
+        lname: "Doe"
       });
     }
 
     // call f
     f(                  );
 
-<!SLIDE cljs-js-comparison>
+<!SLIDE cljs-js-comparison transition=fade>
 
 ClojureScript:
 
     @@@ clojure
     ;; define f
     (defn f [a b c]
-      (g a [b c] {fname "John"
-                  lname "Doe"}))
+      (g a [b c] {:fname "John"
+                  :lname "Doe"}))
 
     ;; call f
     (f 42 "Forty" "Two")
@@ -228,8 +215,8 @@ Javascript:
     // define f
     function f(a, b, c) {
       g(a, [b, c], {
-        'fname': "John",
-        'lname': "Doe"
+        fname: "John",
+        lname: "Doe"
       });
     }
 
