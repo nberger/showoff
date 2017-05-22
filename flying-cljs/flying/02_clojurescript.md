@@ -270,6 +270,9 @@ Extensible: macros
     (assoc david :language "ClojureScript")
     ;; {:name "David" :language "ClojureScript"}
 
+<img src="../_images/Purely_Functional_tree_after.svg" style="width:25%" alt="cljs logo" />
+Source: https://commons.wikimedia.org/w/index.php?curid=3594620
+
 ~~~SECTION:notes~~~
 Also list, set, and others optimized for specific use cases
 
