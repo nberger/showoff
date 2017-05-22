@@ -225,7 +225,7 @@ Javascript:
 
 <!SLIDE cljs bullets incremental>
 
-# ClojureScript
+# Why ClojureScript?
 
 * Immutable (persistent) data structures
 
@@ -233,11 +233,13 @@ Javascript:
 
 * Stable and extensible language
 
-* Good semantics
+* Better semantics
 
 * Google Closure
 
 ~~~SECTION:notes~~~
+It's not about the syntax
+
 Functions as 1st class citizens
 
 Pure functions
@@ -246,11 +248,7 @@ The fewer side-effects the better
 
 Immutable by default
 
-Extensible: core.async as library
-
-
-
-Next slide: Lots of parens
+Extensible: macros
 ~~~ENDSECTION~~~
 
 <!SLIDE cljs>
@@ -276,6 +274,7 @@ Next slide: Lots of parens
 Also list, set, and others optimized for specific use cases
 
 No copy -> efficient and fast
+~~~ENDSECTION~~~
 
 
 <!SLIDE cljs>
@@ -284,9 +283,21 @@ No copy -> efficient and fast
 
 ## Concise and expressive
 
-Add code example HERE, maybe a data transformation pipeline
+    @@@ Clojure
+    (->> (range)
+         (map #(* % %))
+         (filter even?)
+         (map inc)
+         (take 3))
+    ;; (1 5 17)
 
-<!SLIDE cljs bullets incremental>
+~~~SECTION:notes~~~
+Lazy sequences allows for very expressive code
+
+No need for lodash or underscore.js
+~~~ENDSECTION~~~
+
+<!SLIDE cljs>
 
 # ClojureScript
 
@@ -294,15 +305,132 @@ Add code example HERE, maybe a data transformation pipeline
 
 * Macros
 
-* Example: core.async. Go-style blocks (CSP) 
+* Helps to keep the language small
+
+* Code-as-data - use same language to transform code
+
+<!SLIDE cljs macros>
+
+# Macros
+
+## Example: Threading macro ->>
+
+    @@@ Clojure
+    (take 3
+          (map inc
+               (filter even?
+                       (map #(* % %)
+                            (range)))))
+    ;; (1 5 17)
+
+<!SLIDE cljs macros transition=fade>
+
+# Macros
+
+## Example: Threading macro ->>
+
+    @@@ Clojure
+    (->> (range)
+         (map #(* % %))
+         (filter even?)
+         (map inc)
+         (take 3))
+    ;; (1 5 17)
+
+<!SLIDE cljs macros>
+
+# Macros
+
+## Example: doto
+
+    @@@ Javascript
+    var myDate = (function(){
+      var d = new Date();
+      d.setDate(21);
+      d.setMonth(10);
+      d.setFullYear(2015);
+      return d;
+    }());
+
+    @@@ Clojure
+    (def my-date
+      (let [d (new Date)]
+        (.setDate d 21)
+        (.setMonth d 10)
+        (.setFullYear d 2015)
+        d))
+
+<!SLIDE cljs macros transition=fade>
+
+# Macros
+
+## Example: doto
+
+    @@@ Javascript
+    var myDate = (function(){
+      var d = new Date();
+      d.setDate(21);
+      d.setMonth(10);
+      d.setFullYear(2015);
+      return d;
+    }());
+
+    @@@ Clojure
+    (def my-date
+      (doto (new Date)
+        (.setDate 21)
+        (.setMonth 10)
+        (.setFullYear 2015)))
+
+<!SLIDE cljs macros>
+
+# Macros
+
+## Other examples
+
+* Golang-style go-routines (CSP): core.async
+
+* OCaml/Erlang-style pattern matching: core.match
 
 ~~~SECTION:notes~~~
 CSP: Communicating Sequential Processes
 
 Illusion of sequential code
+~~~ENDSECTION~~~
 
-More than async/await: Coordinate complex async operations
+<!SLIDE cljs bullets incremental>
+
+# Better semantics
+
+* No variable hoisting
+
+<!SLIDE cljs>
+
+# Better semantics
+
+No variable hoisting
+
+    @@@ Javascript
+    // Variable "hoisted" to the top of the scope in JS. No warn/error
+    function sayHi() {
+      console.log('Hi, ' + who);
+      var who = 'Pete';
+    }
+
+    sayHello();
+    // Hi, undefined
 
 
+    @@@ Clojure
+    (defn say-hi []
+      (println "Hello, " who)
+      (let [who "Pete"]))
 
+    (say-hi)
+    ;; Use of undeclared Var flying/who
 
+<!SLIDE cljs bullets incremental>
+
+# Better semantics
+
+Sane equality
