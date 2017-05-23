@@ -289,7 +289,7 @@ No copy -> efficient and fast
 
 * Also list, set, queue, etc.
 
-* Persistent: Implemented as trees. New versions share structure with old
+* Persistent: Implemented as tries. New versions share structure with old
 
 Example:
 
