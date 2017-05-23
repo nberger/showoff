@@ -20,7 +20,6 @@ doc
 pkg
 *.gem
 .bundle
-Gemfile.lock
 .rvmrc
 .rake_t_cache
 vendor
