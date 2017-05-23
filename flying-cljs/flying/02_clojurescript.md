@@ -9,6 +9,8 @@
 * A LISP language
 
 ~~~SECTION:notes~~~
+what's clojurescript: Who has heard about clojureScript? Who has used ClojureScript in a project?
+
 Clojure on JVM
 
 Cljs everywhere: browsers, servers, phones or even toasters
@@ -227,48 +229,39 @@ Javascript:
 
 # Why ClojureScript?
 
-* Immutable (persistent) data structures
+It's not about syntax...
 
-* Concise and expressive
+<br/>
+
+* Immutable persistent data structures
+
+* Concise and expressive code
 
 * Stable and extensible language
 
 * Better semantics
 
-* Google Closure
+* Google Closure Compiler (& Library)
 
 ~~~SECTION:notes~~~
-It's not about the syntax
-
-Functions as 1st class citizens
-
-Pure functions
-
-The fewer side-effects the better
+Pure vs side-effectful functions
 
 Immutable by default
 
 Extensible: macros
+
+Stable: Well thought language, 2 years HDD
 ~~~ENDSECTION~~~
 
-<!SLIDE cljs>
+<!SLIDE cljs incremental>
 
-# ClojureScript
+# Immutable data structures
 
-## Immutable Persistent data structures
+* Vectors: `[1 13 42]`
 
-* Vectors: [1 13 42]
+* Maps: `{:name "Nico" :team "Atlanta"}`
 
-* Maps: {:name "Nico" :team "Atlanta"}
-
-
-* Persistent: Tree structure. New versions share structure with old versions
-
-    @@@ Clojure
-    (def david {:name "David"})
-
-    (assoc david :language "ClojureScript")
-    ;; {:name "David" :language "ClojureScript"}
+* Also list, set, queue, etc.
 
 ~~~SECTION:notes~~~
 Also list, set, and others optimized for specific use cases
@@ -276,12 +269,35 @@ Also list, set, and others optimized for specific use cases
 No copy -> efficient and fast
 ~~~ENDSECTION~~~
 
+<!SLIDE cljs>
+
+# Immutable data structures
+
+* Vectors: `[1 13 42]`
+
+* Maps: `{:name "Nico" :team "Atlanta"}`
+
+* Also list, set, queue, etc.
+
+* Persistent: Implemented as trees. New versions share structure with old
+
+Example:
+
+    @@@ Clojure
+    (def david {:name "David"})
+
+    (assoc david :language "ClojureScript")
+    ;; => {:name "David" :language "ClojureScript"}
+
+~~~SECTION:notes~~~
+Also list, set, and others optimized for specific use cases
+
+No copy -> efficient and fast
+~~~ENDSECTION~~~
 
 <!SLIDE cljs>
 
-# ClojureScript
-
-## Concise and expressive
+# Concise and expressive
 
     @@@ Clojure
     (->> (range)
@@ -289,7 +305,7 @@ No copy -> efficient and fast
          (filter even?)
          (map inc)
          (take 3))
-    ;; (1 5 17)
+    ;; => (1 5 17)
 
 ~~~SECTION:notes~~~
 Lazy sequences allows for very expressive code
@@ -299,15 +315,13 @@ No need for lodash or underscore.js
 
 <!SLIDE cljs>
 
-# ClojureScript
+# Stable and Extensible language
 
-## Extensible language
+* Code-as-data - use same language to transform code
 
 * Macros
 
-* Helps to keep the language small
-
-* Code-as-data - use same language to transform code
+* Helps to keep the language small and stable
 
 <!SLIDE cljs macros>
 
@@ -321,7 +335,7 @@ No need for lodash or underscore.js
                (filter even?
                        (map #(* % %)
                             (range)))))
-    ;; (1 5 17)
+    ;; => (1 5 17)
 
 <!SLIDE cljs macros transition=fade>
 
@@ -335,13 +349,15 @@ No need for lodash or underscore.js
          (filter even?)
          (map inc)
          (take 3))
-    ;; (1 5 17)
+    ;; => (1 5 17)
 
 <!SLIDE cljs macros>
 
 # Macros
 
 ## Example: doto
+
+js:
 
     @@@ Javascript
     var myDate = (function(){
@@ -351,6 +367,14 @@ No need for lodash or underscore.js
       d.setFullYear(2015);
       return d;
     }());
+
+<!SLIDE cljs macros transition=fade>
+
+# Macros
+
+## Example: doto
+
+cljs:
 
     @@@ Clojure
     (def my-date
@@ -366,14 +390,17 @@ No need for lodash or underscore.js
 
 ## Example: doto
 
-    @@@ Javascript
-    var myDate = (function(){
-      var d = new Date();
-      d.setDate(21);
-      d.setMonth(10);
-      d.setFullYear(2015);
-      return d;
-    }());
+cljs:
+
+    @@@ Clojure
+    (def my-date
+      (let [d (new Date)]
+        (.setDate d 21)
+        (.setMonth d 10)
+        (.setFullYear d 2015)
+        d))
+
+using doto:
 
     @@@ Clojure
     (def my-date
@@ -404,14 +431,22 @@ Illusion of sequential code
 
 * No variable hoisting
 
+~~~SECTION:notes~~~
+
+Even when compiled to javascript, it solves some issues from Javascript
+
+~~~ENDSECTION~~~
+
 <!SLIDE cljs>
 
 # Better semantics
 
 No variable hoisting
 
+js:
+
     @@@ Javascript
-    // Variable "hoisted" to the top of the scope in JS. No warn/error
+    // Variable "hoisted" to top of function scope. No warn/error
     function sayHi() {
       console.log('Hi, ' + who);
       var who = 'Pete';
@@ -421,16 +456,38 @@ No variable hoisting
     // Hi, undefined
 
 
+cljs:
+
     @@@ Clojure
     (defn say-hi []
       (println "Hello, " who)
       (let [who "Pete"]))
 
     (say-hi)
-    ;; Use of undeclared Var flying/who
+    ;; WARN: Use of undeclared Var flying/who
 
 <!SLIDE cljs bullets incremental>
 
 # Better semantics
 
 Sane equality
+
+js:
+
+    @@@ Javascript
+    1 == "1"   // => true
+    0 == false // => true
+    {} == {}   // => false
+
+cljs:
+
+    @@@ Clojure
+    (= 1 "1")   ;; => false
+    (= 0 false) ;; => false
+    (= {} {})   ;; => true
+
+~~~SECTION:notes~~~
+There's also strict equality ===
+
+But how to know when to you use which one?
+~~~ENDSECTION~~~
