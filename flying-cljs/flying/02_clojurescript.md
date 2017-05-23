@@ -501,3 +501,63 @@ There's also strict equality ===
 
 But how to know when to you use which one?
 ~~~ENDSECTION~~~
+
+<!SLIDE cljs semantics>
+
+# Better semantics
+
+No operator precedence table
+
+<img src="../_images/operator-precedence.png" style="width:45%" alt="operator-precedence-js" />
+
+<!SLIDE cljs semantics transition=fade>
+
+# Better semantics
+
+No operator precedence table
+
+js:
+
+    @@@ Javascript
+    (x > 20) && (x < 80) || (y > 100) && (y < 500)
+
+cljs:
+
+    @@@ Clojure
+    (or (< 20 x 80) (< 100 y 500))
+
+
+<!SLIDE cljs semantics transition=fade>
+
+# Better semantics
+
+No operator precedence table
+
+js:
+
+    @@@ Javascript
+    ((x > 20) && (x < 80)) || ((y > 100) && (y < 500))
+
+cljs:
+
+    @@@ Clojure
+    (or (< 20 x 80) (< 100 y 500))
+
+<!SLIDE cljs semantics transition=fade>
+
+# Better semantics
+
+No operator precedence table
+
+js:
+
+    @@@ Javascript
+    if (((x > 20) && (x < 80)) || ((y > 100) && (y < 500))) {
+      console.log("yay!");
+    }
+
+cljs:
+
+    @@@ Clojure
+    (if (or (< 20 x 80) (< 100 y 500))
+      (println "yay!"))
