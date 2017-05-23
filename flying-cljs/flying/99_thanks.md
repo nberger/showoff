@@ -7,6 +7,9 @@ nberger
 [fa-twitter]
 nicoberger
 
+<br/>
+Questions?
+
 .photos-credit All photos by myself
 
 <!SLIDE just-words>
