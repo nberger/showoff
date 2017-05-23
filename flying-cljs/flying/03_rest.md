@@ -58,27 +58,44 @@ ClojureScript outputs js optimized for Google Closure
 
 # Reagent
 
-* Thin React wrapper
+* Makes it easy to create React components
 
-* Makes it easy to create components
+* ~~JSX~~ Hiccup
 
-* Most components are created using cljs data structures
+<!SLIDE reagent>
+
+# Reagent
+
+* Makes it easier to create React components
+
+* ~~JSX~~ Hiccup
+
+Example:
 
     @@@ clojure
-    [:div
-     [:p "This is some "
-      [:strong "text"]]
-     [:ul
-      [:li {:style {:margin-right "10px"}} "A list item"]
-      [:li "Another list item"]]]
+    [:div {:text-align "center"}
+     [:h3 "Todos"]
+     [:ul#todos
+      (for [todo todos]
+        [:li.todo (:description todo)]]]
 
 <!SLIDE re-frame bullets incremental>
 
 # Re-frame
 
+* Built on top of reagent
+
+* State management
+
 * Redux-like library
 
-* Built on top of reagent
+* Single store (atom)
+
+* State changed via event/handler (action/reducer)
+
+* One-way data flow: handlers -> store -> view
+
+* Logging, time-travel, hot-reload, record & replay
 
 <!SLIDE references>
 
