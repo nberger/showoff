@@ -27,15 +27,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-.footer {
+#footer {
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 20px;
+  text-align: left;
 }
 
 .photos-credit {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   width: 100%;
   text-align: center;
 }
