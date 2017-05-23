@@ -13,7 +13,7 @@
 
 # Reagent
 
-* Makes it easy to create React components
+* Helps to create React components
 
 * ~~JSX~~ Hiccup
 
