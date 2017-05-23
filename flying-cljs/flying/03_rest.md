@@ -42,18 +42,17 @@ ClojureScript outputs js optimized for Google Closure
 * goog.uri
 * goog.window
 
-<!SLIDE google-closure library>
 
 <!SLIDE react bullets incremental>
 
 # React.js
 
-
-* A javascript library for building user interfaces
-
-* React Wrappers: Om, Reagent, Quiescent, Rum
-
 <img class="react-logo" src="../_images/react.png" alt="react logo" />
+
+* A library for building composable user interfaces
+
+* React Wrappers: Om, **Reagent**, Quiescent, Rum
+
 
 <!SLIDE reagent incremental>
 
