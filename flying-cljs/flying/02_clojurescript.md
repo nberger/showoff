@@ -35,6 +35,16 @@ A List Processing language. How do we delimit lists? Using parenthesis
 Lots of parens
 ~~~ENDSECTION~~~
 
+<!SLIDE[bg=fortran-lisp.jpg] lisp>
+
+
+~~~SECTION:notes~~~
+
+Created in 1958, 1 year after fortran
+
+One of the oldest high level languages still in use today
+
+~~~ENDSECTION~~~
 
 <!SLIDE[bg=parens.jpg] cljs-parens>
 
