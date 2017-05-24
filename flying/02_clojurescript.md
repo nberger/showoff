@@ -300,6 +300,7 @@ Example:
     (def david {:name "David"})
 
     (assoc david :language "ClojureScript")
+
     ;; => {:name "David" :language "ClojureScript"}
 
 ~~~SECTION:notes~~~
@@ -320,7 +321,8 @@ No copy -> efficient and fast
         first
         (assoc :hair-color :gray)
         (update :age inc))
-   ;; => {:name "Nico" :age 39 :hair-color :gray}
+
+    ;; => {:name "Nico" :age 39 :hair-color :gray}
 
 ~~~SECTION:notes~~~
 Lazy sequences allows for very expressive code
@@ -342,25 +344,27 @@ No need for lodash or underscore.js
 
 # Macros
 
-## Example: Threading macro ->>
+## Example: Threading macro ->
 
     @@@ Clojure
     (update (assoc (first people)
                    :hair-color :gray)
             :age inc)
+
     ;; => {:name "Nico" :age 39 :hair-color :gray}
 
 <!SLIDE cljs macros transition=fade>
 
 # Macros
 
-## Example: Threading macro ->>
+## Example: Threading macro ->
 
     @@@ Clojure
     (-> people
         first
         (assoc :hair-color :gray)
         (update :age inc))
+
     ;; => {:name "Nico" :age 39 :hair-color :gray}
 
 <!SLIDE cljs macros>
