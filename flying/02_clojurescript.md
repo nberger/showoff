@@ -9,11 +9,12 @@
 * A LISP language
 
 ~~~SECTION:notes~~~
-what's clojurescript: Who has heard about clojureScript? Who has used ClojureScript in a project?
+Who has heard about clojureScript? Who has used ClojureScript in a project?
+What about clojure, who has used it already?
 
 Clojure on JVM
 
-Cljs everywhere: browsers, servers, phones or even toasters
+Cljs everywhere: browsers, servers, cars or even toasters
 
 List Processing. How do we delimit lists? Using parenthesis
 
