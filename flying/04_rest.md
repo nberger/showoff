@@ -13,34 +13,39 @@
 
 # Reagent
 
-* Helps to create React components
+"A minimalistic ClojureScript interface to React.js"
 
-* ~~JSX~~ Hiccup
+* Create React components using (almost) just plain ClojureScript functions
+
+* J̶S̶X̶ Hiccup
 
 <!SLIDE reagent>
 
 # Reagent
 
-* Makes it easier to create React components
+"A minimalistic ClojureScript interface to React.js"
 
-* ~~JSX~~ Hiccup
+* Create React components using (almost) just plain ClojureScript functions
+
+* J̶S̶X̶ Hiccup
 
 Example:
 
     @@@ clojure
-    [:div {:text-align "center"}
-     [:h3 "Todos"]
-     [:ul#todos
-      (for [todo todos]
-        [:li.todo (:description todo)]]]
+    (defn todos-view [todos]
+     [:div {:text-align "center"}
+      [:h3 "Todos"]
+      [:ul#todos
+       (for [todo todos]
+         [:li.todo
+          (:description todo)
+          [delete-todo-btn todo]]]
 
 <!SLIDE re-frame bullets incremental>
 
 # Re-frame
 
 * Built on top of reagent
-
-* State management
 
 * Redux-like library
 
