@@ -6,6 +6,43 @@
 
 * A library for building composable user interfaces
 
+* Functional and declarative approach
+
+<!SLIDE react>
+
+<img src="../_images/react-perf.png" alt="react performance optimization" />
+
+<!SLIDE react>
+
+# React.js
+
+<img class="react-logo" src="../_images/react.png" alt="react logo" />
+
+Js + JSX:
+
+    @@@ Javascript
+    class HelloMessage extends React.Component {
+      render() {
+        return <div>Hello {this.props.name}</div>;
+      }
+    }
+
+    ReactDOM.render(<HelloMessage name="John" />, mountNode);
+
+<!SLIDE react bullets incremental transition=fade>
+
+# React.js
+
+<img class="react-logo" src="../_images/react.png" alt="react logo" />
+
+Cljs + reagent:
+
+    @@@ Clojure
+    (defn hello-message [props]
+      [:div "Hello " (:name props)])
+
+    (reagent/render [hello-message {:name "John"}] mountNode)
+
 * React Wrappers: Om, **Reagent**, Quiescent, Rum
 
 
@@ -69,6 +106,7 @@ Example:
 
 ~~~SECTION:notes~~~
 Time from saving file to see changes
+
 Easier ways to interact with your code
 ~~~ENDSECTION~~~
 
