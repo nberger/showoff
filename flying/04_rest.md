@@ -57,6 +57,33 @@ Example:
 
 * Logging, time-travel, hot-reload, record & replay
 
+<!SLIDE interactive bullets incremental>
+
+# Interactive development
+
+* Reduce feedback loop
+
+* REPL (**R**ead-**E**val-**P**rint-**L**oop)
+* Devcards
+* Hot-reload (Figwheel, Boot-reload)
+
+~~~SECTION:notes~~~
+Time from saving file to see changes
+Easier ways to interact with your code
+~~~ENDSECTION~~~
+
+<!SLIDE figwheel-devcards-tweets>
+
+<img src="../_images/tweet-figwheel.png" alt="figwheel tweet" />
+
+<br/>
+
+<img src="../_images/tweet-devcards.png" alt="devcards tweet" />
+
+<!SLIDE demo inverse>
+
+# DEMO
+
 <!SLIDE references>
 
 # References/Links
