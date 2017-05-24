@@ -10,7 +10,7 @@ nicoberger
 <br/>
 Questions?
 
-.photos-credit All photos by myself
+.photos-credit Photo credit: Nicolás Berger
 
 <!SLIDE just-words>
 Foreword: explain title, introduce myself and roomstorm - 1min
