@@ -314,15 +314,12 @@ No copy -> efficient and fast
 # Concise and expressive
 
     @@@ Clojure
-    (def people [{:name "Nico" :age 38}
-                 {:name "Jakub" :age 32}])
+    (->> (range)
+         (filter even?)
+         (map inc)
+         (take 3))
 
-    (-> people
-        first
-        (assoc :hair-color :gray)
-        (update :age inc))
-
-    ;; => {:name "Nico" :age 39 :hair-color :gray}
+    ;; => (1 3 5)
 
 ~~~SECTION:notes~~~
 Lazy sequences allows for very expressive code
@@ -344,28 +341,29 @@ No need for lodash or underscore.js
 
 # Macros
 
-## Example: Threading macro ->
+## Example: Threading macro ->>
 
     @@@ Clojure
-    (update (assoc (first people)
-                   :hair-color :gray)
-            :age inc)
+    (take 3
+          (map inc
+               (filter even?
+                       (range))))
 
-    ;; => {:name "Nico" :age 39 :hair-color :gray}
+    ;; => (1 3 5)
 
 <!SLIDE cljs macros transition=fade>
 
 # Macros
 
-## Example: Threading macro ->
+## Example: Threading macro ->>
 
     @@@ Clojure
-    (-> people
-        first
-        (assoc :hair-color :gray)
-        (update :age inc))
+    (->> (range)
+         (filter even?)
+         (map inc)
+         (take 3))
 
-    ;; => {:name "Nico" :age 39 :hair-color :gray}
+    ;; => (1 3 5)
 
 <!SLIDE cljs macros>
 
