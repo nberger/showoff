@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.content.title > p {
+.content.title > p, .main > p, li > p {
   margin-left: 8px;
 }
 
