@@ -244,7 +244,7 @@ It's not about syntax...
 
 <br/>
 
-* Immutable persistent data structures
+* Immutable data structures
 
 * Concise and expressive code
 
@@ -258,6 +258,8 @@ It's not about syntax...
 Pure vs side-effectful functions
 
 Immutable by default
+
+No defensive copying "just in case"
 
 Extensible: macros
 
